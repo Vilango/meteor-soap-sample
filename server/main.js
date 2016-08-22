@@ -2,17 +2,16 @@ import { Meteor } from 'meteor/meteor';
 
 
 Meteor.startup(() => {
-  // code to run on server at startup
-
+  
   let url = Meteor.absoluteUrl()+'BLZService.xml';
-  //let url = 'http://www.thomas-bayer.com/axis2/services/BLZService?wsdl';
+  // let url = 'http://www.thomas-bayer.com/axis2/services/BLZService?wsdl';
 
-  let args = {};
+  let args = {blz: '37069521'};
   console.log("server started", url);
 
   try {
     var client = Soap.createClient(url);
-    console.log("client", client);
+    console.log("client", 'ok');
 
     var result = client.getBank(args);
 
